@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="ISO-8859-1">
+
+<title>Layette</title>
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap-theme.min.css" rel="stylesheet">
+</head>
+<body>
+	<ul class="nav nav-pills">
+		<li role="presentation"><a href="MainMenu.html">Home</a></li>
+		<li role="presentation"><a href="User.html">User</a></li>
+		<li role="presentation"><a href="Mood.html">Mood</a></li>
+		<li role="presentation" class="active"><a href="Layette.html">Layette</a></li>
+		<li role="presentation"><a href="MedicalRecommendation.html">Medical
+				Recommendation</a></li>
+		<li role="presentation"><a href="Schedule.html">Schedule</a></li>
+		<li role="presentation"><a
+			href="javascript: if (confirm('Deseja SAIR?')) { window.location.href='Login.html'}  else { void('') }; ">Logout</a></li>
+	</ul>
+	<div class="container">
+
+		<div class="panel panel-primary">
+			<div class="panel-heading">Administrar Enxoval</div>
+			<div class="panel-body">
+
+				<form id="criarCervejaForm">
+					<div class="form-group">
+						<label>Id</label> <input type="text" class="form-control"
+							name="id" /> <label>Nome</label> <input type="text"
+							class="form-control" name="nome" /> <label>Usuario</label> <input
+							type="text" class="form-control" name="usuario" /> <label>Descrição</label>
+						<textarea rows="" 10 cols="10" class="form-control"
+							name="descricao"></textarea>
+						<label>Status</label> <select name="status" class="form-control">
+							<option value="ACTIVE" selected="selected">Ativo</option>
+							<option value="INACTIVE">Inativo</option>
+						</select> <br />
+						<div class="btn-block btn-group">
+							<input type="reset" class="btn btn-default" value="Limpar" /> <input
+								type="button" class="btn btn-primary" value="Salvar"
+								onclick="adicionaLayette();" />
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="panel panel-default">
+				<!-- Default panel contents -->
+				<div class="panel-heading">Listagem de enxoval</div>
+				<table id="grid" class="table">
+					<thead>
+						<tr>
+							<th>Nome</th>
+							<th>Usuario</th>
+							<th>Descrição</th>
+							<th>Status</th>
+						</tr>
+					</thead>
+					<tr>
+						<td colspan="5">Carregando...</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div id="images" class="panel" style="float: left;"></div>
+
+	<script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
+	<script src="js/json.js" type="text/javascript"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/custom.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		listarLayette();
+	</script>
+
+
+</body>
+</html>
