@@ -1,8 +1,16 @@
 package br.org.catolicasc.manhe.services;
 
-public class WADLConfig {//extends WadlGeneratorConfig {
+import java.util.List;
 
-	/*@Override
+import org.glassfish.jersey.server.wadl.config.WadlGeneratorConfig;
+import org.glassfish.jersey.server.wadl.config.WadlGeneratorDescription;
+import org.glassfish.jersey.server.wadl.internal.generators.WadlGeneratorApplicationDoc;
+import org.glassfish.jersey.server.wadl.internal.generators.WadlGeneratorGrammarsSupport;
+import org.glassfish.jersey.server.wadl.internal.generators.resourcedoc.WadlGeneratorResourceDocSupport;
+
+public class WADLConfig extends WadlGeneratorConfig {
+
+	@Override
 	public List<WadlGeneratorDescription> configure() {
 
 		return generator(WadlGeneratorApplicationDoc.class)
@@ -15,5 +23,5 @@ public class WADLConfig {//extends WadlGeneratorConfig {
 				.descriptions();
 
 	}
-*/
+
 }

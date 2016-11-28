@@ -1,4 +1,4 @@
-	var host = "http://localhost:8080/manhe/services/";
+	var host = "http://localhost:8080/Manhe/services/";
 	
 	function listarLayette() {  
 			$.ajax({ 
@@ -8,16 +8,17 @@
 	                 Accept : 'application/json'   
 	  			},    
 				success : function(data) {
-
 					$('#grid tr:gt(0)').remove();
-					if ($.isArray(data.cervejas.link)) {
-					   for ( var i = 0; i < data.cervejas.link.length; i++) {
-					      var link = data.cervejas.link[i]['@href'];
-					      segueLinkCerveja(link);
-					   }
-					} else {
-					   var link = data.cervejas.link['@href'];
-					   segueLinkCerveja(link);
+					if(data.layettes != undefined && data.layettes.length > 0){
+						if ($.isArray(data.layettes.link)) {
+						   for ( var i = 0; i < data.layettes.link.length; i++) {
+						      var link = data.layettes.link[i]['@href'];
+						      segueLinkLayette(link);
+						   }
+						} else {
+						   var link = data.layettes.link['@href'];
+						   segueLinkLayette(link);
+						}
 					}
 			
 				},
@@ -28,12 +29,12 @@
 		}      
 		
 		
-		function segueLinkCerveja(link) {
+		function segueLinkLayette(link) {
 		   $.ajax({
 		      url : host + link,
 		      type : 'GET',
 		      success : function(data) {
-		         adicionaCervejaNovaAoGrid(data.cerveja);
+		         adicionaLayetteNovaAoGrid(data.layette);
 		      },
 		      error : function(data) {
 		         alert("Ocorreu um erro");
@@ -41,45 +42,44 @@
 		   });
 		}
 		
-		function adicionaCervejaNovaAoGrid(cerveja) {
+		function adicionaLayetteNovaAoGrid(layette) {
 
-			 var data = "<tr onmouseover='verCerveja(\"" + cerveja.nome + "\")' >"
-	  		      + "<td>" + cerveja.nome + "</td>"
-	  		      + "<td>" + cerveja.cervejaria + "</td>"
-	  		      + "<td>" + cerveja.descricao + "</td>"
-	  		      + "<td>" + cerveja.tipo + "</td>"
+			 var data = "<tr>"
+	  		      + "<td>" + layette.name + "</td>"
+	  		      + "<td>" + layette.description + "</td>"
+	  		      + "<td>" + layette.status + "</td>"
 	  		      + "<td><input type=\"button\" class=\"btn btn-danger\"  value=\"Apagar\" "
-	  		      + "onclick=\"apagaCerveja('" + cerveja.nome + "');\" /> " 
+	  		      + "onclick=\"apagaLayette('" + layette.id + "');\" /> " 
 	  		    + "<input type=\"button\" value=\"Editar\"  class=\"btn btn-primary\""
-	  		      + "onclick=\"carregaCerveja('" + cerveja.nome + "');\" /></td>" 
+	  		      + "onclick=\"carregaLayette('" + layette.id + "');\" /></td>" 
 	  		      + "</tr>";
 
 	  		   $("#grid").append(data);
 	  		}
 
-		function adicionaCerveja() {
-			var data = $("#criarCervejaForm").serializeJSON();
+		function adicionaLayette() {
+			var data = $("#criarLayetteForm").serializeJSON();
 
   			if(data.id){
-  				atualizaCerveja(data);
+  				atualizaLayette(data);
   	  		}else {
-  	  			criaCerveja(data);
+  	  			criaLayette(data);
   	  	  	}
 
   		    
   		}
 
-  		function criaCerveja(data){
-  			 data = "{\"cerveja\":" + JSON.stringify(data) + "}";
+  		function criaLayette(data){
+  			 data = "{\"layette\":" + JSON.stringify(data) + "}";
    			$.ajax({
-   			   url : host + 'cervejas',
+   			   url : host + 'layette',
    			   type : 'POST',
    			   contentType : 'application/json',
    			   data : data,
    			   success : function(data) {
    				  alert("Incluído com sucesso!");
-   				  $("#criarCervejaForm")[0].reset();
-   				  listarCervejas();
+   				  $("#criarLayetteForm")[0].reset();
+   				  listarLayettes();
    			   },
    			   error : function(data) {
    				 
@@ -91,18 +91,18 @@
   		}
 
 
-		function atualizaCerveja(data) {
+		function atualizaLayette(data) {
 			id = data.nome;
-  			data = "{\"cerveja\":" + JSON.stringify(data) + "}";
+  			data = "{\"layette\":" + JSON.stringify(data) + "}";
   			$.ajax({
-  			   url : host + 'cervejas/'+id,
+  			   url : host + 'layettes/'+id,
   			   type : 'PUT',
   			   contentType : 'application/json',
   			   data : data,
   			   success : function(data) {
   				  alert("Incluído com sucesso!");
-  				  $("#criarCervejaForm")[0].reset();
-  				  listarCervejas();
+  				  $("#criarLayetteForm")[0].reset();
+  				  listarLayettes();
   			   },
   			   error : function(data) {
 						console.log(data);
@@ -112,12 +112,12 @@
   			 });
   		}
 
-		function apagaCerveja(id) {
+		function apagaLayette(id) {
   			$.ajax({
-  						url : host + 'cervejas/' + id,
+  						url : host + 'layettes/' + id,
   						type : 'DELETE',
   						success : function(data) {
-  							listarCervejas();
+  							listarLayettes();
   						},
   						error : function(data) {
   							console.log(data);
@@ -128,14 +128,14 @@
 
   		}
 
-		function carregaCerveja(id) {
+		function carregaLayette(id) {
 					$.ajax({
-						url : host + 'cervejas/' + id,
+						url : host + 'layettes/' + id,
 						type : 'GET',
 						success : function(data) {
-							var frm =  $("#criarCervejaForm");
-							 $.each(data.cerveja, function(key, value){
-								    $('[name='+key+']', frm).val(value);
+							var frm =  $("#criarLayetteForm");
+							 $.each(data.layette, function(key, value){
+								    $('[id='+key+']', frm).val(value);
 							});
 						},
 						error : function(data) {
@@ -147,24 +147,4 @@
 
 		}
 		
-		function verCerveja(nome) {
-  			$('#images').html('Loading...');
-			$.ajax({
-				url: '/handson-20/services/cervejas/' + nome,
-				method: 'GET',
-				headers: {
-					Accept: 'image/*'
-				},
-				processData: false,
-				cache: false,
-				success: function (data) {
-					console.info(data);
-					$('#images').html('<img width=300 height=500 src="data:image/png;base64,' + data + '" />');
-				},
-				failure: function (data) {
-					console.info('ERRO');
-					$('#images').html('');
-				}
-			});
- 	  	}
 		

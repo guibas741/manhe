@@ -52,7 +52,7 @@ public class LayetteService {
 	}
 	
 	@POST
-	public Response createRecommendations(Layette layette) {
+	public Response createLayette(Layette layette) {
 		
 		try {
 			dao.salva(layette);

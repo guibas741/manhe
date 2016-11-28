@@ -20,7 +20,7 @@ public class Schedule implements Bean{
 	
 	private String result;
 	
-	private User user;
+	//private User user;
 
 	private Status status;
 	
@@ -56,13 +56,13 @@ public class Schedule implements Bean{
 		this.result = result;
 	}
 
-	public User getUser() {
+	/*public User getUser() {
 		return user;
 	}
 
 	public void setUser(User user) {
 		this.user = user;
-	}
+	}*/
 
 	public Status getStatus() {
 		return status;

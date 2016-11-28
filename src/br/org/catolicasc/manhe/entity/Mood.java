@@ -19,7 +19,7 @@ public class Mood implements Bean{
 	
 	private Status status;
 	
-	private User user;
+	//private User user;
 
 	public Long getId() {
 		return id;
@@ -53,13 +53,13 @@ public class Mood implements Bean{
 		this.status = status;
 	}
 
-	public User getUser() {
+	/*public User getUser() {
 		return user;
 	}
 
 	public void setUser(User user) {
 		this.user = user;
-	}
+	}*/
 	
 	public void inactivateMood(){
 		this.status = Status.INACTIVE;

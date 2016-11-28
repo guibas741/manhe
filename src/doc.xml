@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<applicationDocs targetNamespace="http://research.sun.com/wadl/2006/10">
+	<doc xml:lang="pt-BR" title="API manhe.catolicasc.org.br">
+		Esta é a documentação oficial da aplicação
+		<a href="http://manhe.catolicasc.org.br">manhe.catolicasc.org.br</a>
+	</doc>
+</applicationDocs>

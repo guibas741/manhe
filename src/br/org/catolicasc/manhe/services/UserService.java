@@ -18,7 +18,6 @@ import javax.ws.rs.core.UriBuilder;
 
 import br.org.catolicasc.manhe.dao.JpaDaoFactory;
 import br.org.catolicasc.manhe.dao.UserDao;
-import br.org.catolicasc.manhe.entity.Schedule;
 import br.org.catolicasc.manhe.entity.User;
 import br.org.catolicasc.manhe.exceptions.ExistentRecordException;
 

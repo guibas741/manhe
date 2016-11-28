@@ -17,13 +17,13 @@ public class MoodHistory implements Bean{
 	
 	private Date datetime;	
 	
-	private Mood mood;
+	private Long moodId;
 	
 	private Status status;
 	
 	private String reason;
 	
-	private User user;
+	//private User user;
 
 	public Long getId() {
 		return id;
@@ -41,12 +41,12 @@ public class MoodHistory implements Bean{
 		this.datetime = datetime;
 	}
 
-	public Mood getMood() {
-		return mood;
+	public Long getMoodId() {
+		return moodId;
 	}
 
-	public void setMood(Mood mood) {
-		this.mood = mood;
+	public void setMoodId(Long moodId) {
+		this.moodId = moodId;
 	}
 
 	public Status getStatus() {
@@ -65,13 +65,13 @@ public class MoodHistory implements Bean{
 		this.reason = reason;
 	}
 
-	public User getUser() {
+	/*public User getUser() {
 		return user;
 	}
 
 	public void setUser(User user) {
 		this.user = user;
-	}
+	}*/
 	
 	public void inactivateMoodHistory(){
 		this.status = Status.INACTIVE;

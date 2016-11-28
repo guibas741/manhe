@@ -1,8 +1,5 @@
 package br.org.catolicasc.manhe.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -20,13 +17,9 @@ public class Layette implements Bean{
 	
 	private String description;
 	
-	private List<String> recommendations;
-	
-	private Integer recommendationCounter;
-	
 	private Status status;
 	
-	private User user;
+	//private User user;
 
 	public Long getId() {
 		return id;
@@ -52,28 +45,6 @@ public class Layette implements Bean{
 		this.description = description;
 	}
 
-	public List<String> getRecommendations() {
-		if(recommendations == null){
-			recommendations = new ArrayList<String>();
-		}
-		return recommendations;
-	}
-
-	public void setRecommendations(List<String> recommendations) {
-		this.recommendations = recommendations;
-	}
-
-	public Integer getRecommendationCounter() {
-		if(recommendationCounter == null){
-			recommendationCounter = 0;
-		}
-		return recommendationCounter;
-	}
-
-	public void setRecommendationCounter(Integer recommendationCounter) {
-		this.recommendationCounter = recommendationCounter;
-	}
-
 	public Status getStatus() {
 		return status;
 	}
@@ -82,20 +53,16 @@ public class Layette implements Bean{
 		this.status = status;
 	}
 
-	public User getUser() {
+	/*public User getUser() {
 		return user;
 	}
 
 	public void setUser(User user) {
 		this.user = user;
-	}
+	}*/
 	
 	public void inactivateLayette(){
 		this.status = Status.INACTIVE;
 	}
 	
-	public void addRecommendation(String recommendation){
-		this.recommendations.add(recommendation);
-		this.recommendationCounter +=1;
-	}
 }
