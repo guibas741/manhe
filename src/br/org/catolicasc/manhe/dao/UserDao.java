@@ -15,10 +15,10 @@ public class UserDao extends JpaDaoBase<User> implements IDao<User>{
 		return null;
 	}
 	
-	public void remove(String nome) {
+	public void remove(Long id) {
 		em.getTransaction().begin();
 		//revisar banco
-		Query query = em.createQuery("DELETE FROM User c WHERE c.nome = :nome ").setParameter("nome", nome);
+		Query query = em.createQuery("DELETE FROM User c WHERE c.id = :id ").setParameter("id", id);
 		query.executeUpdate();
 		em.getTransaction().commit();
 	}

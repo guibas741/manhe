@@ -13,27 +13,16 @@
 <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 </head>
 <body>
-	<ul class="nav nav-pills">
-		<li role="presentation"><a href="MainMenu.html">Home</a></li>
-		<li role="presentation"  class="active"><a href="User.html">User</a></li>
-		<li role="presentation" ><a href="Mood.html">Mood</a></li>
-		<li role="presentation"><a href="Layette.html">Layette</a></li>
-		<li role="presentation"><a href="MedicalRecommendation.html">Medical
-				Recommendation</a></li>
-		<li role="presentation"><a href="Schedule.html">Schedule</a></li>
-		<li role="presentation"><a
-			href="javascript: if (confirm('Deseja SAIR?')) { window.location.href='Login.html'}  else { void('') }; ">Logout</a></li>
-	</ul>
 	
 	<div class="container">
 
 		<div class="panel panel-primary">
-			<div class="panel-heading">Administrar usuários</div>
+			<div class="panel-heading">Singup</div>
 			<div class="panel-body">
 
 				<form id="criarCervejaForm">
 					<div class="form-group">
-						<label>Id</label> <input type="text" class="form-control"
+							<input type="hidden" class="form-control"
 							name="id" /> <label>Nome</label> <input type="text"
 							class="form-control" name="nome" /> 
 							 <label>Username</label> <input type="text"
@@ -51,22 +40,6 @@
 					</div>
 				</form>
 			</div>
-			<div class="panel panel-default">
-				<!-- Default panel contents -->
-				<div class="panel-heading">Listagem de usuários</div>
-				<table id="grid" class="table">
-					<thead>
-						<tr>
-							<th>Nome</th>
-							<th>Username</th>
-							<th>Data de nascimento</th>
-						</tr>
-					</thead>
-					<tr>
-						<td colspan="5">Carregando...</td>
-					</tr>
-				</table>
-			</div>
 		</div>
 	</div>
 
@@ -75,10 +48,7 @@
 	<script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
 	<script src="js/json.js" type="text/javascript"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script src="js/custom.js" type="text/javascript"></script>
-	<script type="text/javascript">
-		listarUser();
-	</script>
+	<script src="js/manhe.js" type="text/javascript"></script>
 
 </body>
 </html>
