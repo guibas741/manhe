@@ -13,7 +13,7 @@ import br.org.catolicasc.manhe.entity.Layette;
 @XmlRootElement
 public class Layettes {
 
-	private List<Layette> layettes = new ArrayList<Layette>();
+	private List<Layette> layettes = new ArrayList<>();
 	
 	public Layettes(){
 		
@@ -37,7 +37,7 @@ public class Layettes {
 		List<Link> links = new ArrayList<>();
 		for (Layette layette : getLayettes()) {
 			
-			Link link = Link.fromPath("layettes/{id}")
+			Link link = Link.fromPath("layette/{id}")
 					.rel("layette")
 					.title(layette.getId().toString())
 					.build(layette.getId());

@@ -9,7 +9,7 @@
 	  			},    
 				success : function(data) {
 					$('#grid tr:gt(0)').remove();
-					if(data.layettes != undefined && data.layettes.length > 0){
+					if(data.layettes != undefined){
 						if ($.isArray(data.layettes.link)) {
 						   for ( var i = 0; i < data.layettes.link.length; i++) {
 						      var link = data.layettes.link[i]['@href'];
@@ -79,7 +79,7 @@
    			   success : function(data) {
    				  alert("Incluído com sucesso!");
    				  $("#criarLayetteForm")[0].reset();
-   				  listarLayettes();
+   				  listarLayette();
    			   },
    			   error : function(data) {
    				 
@@ -92,17 +92,17 @@
 
 
 		function atualizaLayette(data) {
-			id = data.nome;
+			id = data.id;
   			data = "{\"layette\":" + JSON.stringify(data) + "}";
   			$.ajax({
-  			   url : host + 'layettes/'+id,
+  			   url : host + 'layette/'+id,
   			   type : 'PUT',
   			   contentType : 'application/json',
   			   data : data,
   			   success : function(data) {
   				  alert("Incluído com sucesso!");
   				  $("#criarLayetteForm")[0].reset();
-  				  listarLayettes();
+  				  listarLayette();
   			   },
   			   error : function(data) {
 						console.log(data);
@@ -114,10 +114,10 @@
 
 		function apagaLayette(id) {
   			$.ajax({
-  						url : host + 'layettes/' + id,
+  						url : host + 'layette/' + id,
   						type : 'DELETE',
   						success : function(data) {
-  							listarLayettes();
+  							listarLayette();
   						},
   						error : function(data) {
   							console.log(data);
@@ -130,12 +130,12 @@
 
 		function carregaLayette(id) {
 					$.ajax({
-						url : host + 'layettes/' + id,
+						url : host + 'layette/' + id,
 						type : 'GET',
 						success : function(data) {
 							var frm =  $("#criarLayetteForm");
 							 $.each(data.layette, function(key, value){
-								    $('[id='+key+']', frm).val(value);
+							    $('[name='+key+']', frm).val(value);
 							});
 						},
 						error : function(data) {

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<grammars xmlns="http://wadl.dev.java.net/2009/02" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xi="http://www.w3.org/1999/XML/xinclude">
+
+	<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+		<xs:element name="layette" type="Layette" />
+
+		<xs:element name="layettes" type="Layettes" />
+
+		<xs:complexType name="Layettes">
+			<xs:sequence>
+				<xs:element name="link" type="jaxbLink" minOccurs="0"
+					maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+
+		<xs:complexType name="jaxbLink">
+			<xs:sequence />
+			<xs:attribute name="href" type="xs:string" />
+			<xs:anyAttribute namespace="##other" processContents="skip" />
+		</xs:complexType>
+
+		<xs:complexType name="Layette">
+			<xs:sequence>
+				<xs:element name="name" type="xs:string" minOccurs="0" />
+				<xs:element name="description" type="xs:string" minOccurs="0" />
+				<xs:element name="status" type="Status" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+
+		<xs:simpleType name="Status">
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="ACTIVE" />
+				<xs:enumeration value="INACTIVE" />
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:schema>
+
+
+</grammars>
