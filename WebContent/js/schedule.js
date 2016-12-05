@@ -45,7 +45,7 @@
 		function adicionaScheduleNovaAoGrid(schedule) {
 
 			 var data = "<tr>"
-	  		      + "<td>" + schedule.name + "</td>"
+	  		      + "<td>" + schedule.result + "</td>"
 	  		      + "<td>" + schedule.description + "</td>"
 	  		      + "<td>" + schedule.status + "</td>"
 	  		      + "<td><input type=\"button\" class=\"btn btn-danger\"  value=\"Apagar\" "

@@ -30,14 +30,13 @@
 			<div class="panel-heading">Administrar cronogramas</div>
 			<div class="panel-body">
 
-				<form id="criarCervejaForm">
+				<form id="criarScheduleForm">
 					<div class="form-group">
 							<input type="hidden" class="form-control"
-							name="id" /> <label>Usuario</label> <input type="text"
-							class="form-control" name="usuario" /> <label>Resultado</label>
-						<input type="text" class="form-control" name="resultado" /> <label>Data</label>
-						<input type="date" class="form-control" name="datetime" /> <label>Descrição</label>
-						<textarea rows="5" cols="10" class="form-control" name="descricao"></textarea>
+							name="id" /> <label>Resultado</label>
+						<input type="text" class="form-control" name="result" /> <label>Data</label>
+						<input type="datetime" class="form-control" name="datetime" value=""/> <label>Descrição</label>
+						<textarea rows="5" cols="10" class="form-control" name="description"></textarea>
 						<label>Status</label><select name="status" class="form-control">
 							<option value="ACTIVE" selected="selected">Ativo</option>
 							<option value="INACTIVE">Inativo</option>
@@ -45,7 +44,7 @@
 						<div class="btn-block btn-group">
 							<input type="reset" class="btn btn-default" value="Limpar" /> <input
 								type="button" class="btn btn-primary" value="Salvar"
-								onclick="adicionaMood();" />
+								onclick="adicionaSchedule();" />
 						</div>
 					</div>
 				</form>
@@ -59,7 +58,7 @@
 							<th>Resultado</th>
 							<th>Descrição</th>
 							<th>Status</th>
-							<th>Data</th>
+							<th>Ações</th>
 						</tr>
 					</thead>
 					<tr>

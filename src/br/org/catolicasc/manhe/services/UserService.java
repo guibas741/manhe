@@ -42,7 +42,7 @@ public class UserService {
 	}
 	
 	@POST
-	public Response createRecommendations(User user) {
+	public Response createUsers(User user) {
 		
 		try {
 			dao.salva(user);

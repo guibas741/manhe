@@ -1,23 +1,23 @@
 	var host = "http://localhost:8080/Manhe/services/";
 	
-	function listarMedicalRecommendation() {  
+	function listarUser() {  
 			$.ajax({ 
-				url : host + 'medical-recommendation',
+				url : host + 'user',
 				type : 'GET',
 				 headers: {          
 	                 Accept : 'application/json'   
 	  			},    
 				success : function(data) {
 					$('#grid tr:gt(0)').remove();
-					if(data.medicalRecommendations != undefined){
-						if ($.isArray(data.medicalRecommendations.link)) {
-						   for ( var i = 0; i < data.medicalRecommendations.link.length; i++) {
-						      var link = data.medicalRecommendations.link[i]['@href'];
-						      segueLinkMedicalRecommendation(link);
+					if(data.users != undefined){
+						if ($.isArray(data.users.link)) {
+						   for ( var i = 0; i < data.users.link.length; i++) {
+						      var link = data.users.link[i]['@href'];
+						      segueLinkUser(link);
 						   }
 						} else {
-						   var link = data.medicalRecommendations.link['@href'];
-						   segueLinkMedicalRecommendation(link);
+						   var link = data.users.link['@href'];
+						   segueLinkUser(link);
 						}
 					}
 			
@@ -29,12 +29,12 @@
 		}      
 		
 		
-		function segueLinkMedicalRecommendation(link) {
+		function segueLinkUser(link) {
 		   $.ajax({
 		      url : host + link,
 		      type : 'GET',
 		      success : function(data) {
-		         adicionaMedicalRecommendationNovaAoGrid(data.medicalRecommendation);
+		         adicionaUserNovaAoGrid(data.user);
 		      },
 		      error : function(data) {
 		         alert("Ocorreu um erro");
@@ -42,44 +42,44 @@
 		   });
 		}
 		
-		function adicionaMedicalRecommendationNovaAoGrid(medicalRecommendation) {
+		function adicionaUserNovaAoGrid(user) {
 
 			 var data = "<tr>"
-	  		      + "<td>" + medicalRecommendation.doctorName + "</td>"
-	  		      + "<td>" + medicalRecommendation.description + "</td>"
-	  		      + "<td>" + medicalRecommendation.status + "</td>"
+	  		      + "<td>" + user.name + "</td>"
+	  		      + "<td>" + user.description + "</td>"
+	  		      + "<td>" + user.status + "</td>"
 	  		      + "<td><input type=\"button\" class=\"btn btn-danger\"  value=\"Apagar\" "
-	  		      + "onclick=\"apagaMedicalRecommendation('" + medicalRecommendation.id + "');\" /> " 
+	  		      + "onclick=\"apagaUser('" + user.id + "');\" /> " 
 	  		    + "<input type=\"button\" value=\"Editar\"  class=\"btn btn-primary\""
-	  		      + "onclick=\"carregaMedicalRecommendation('" + medicalRecommendation.id + "');\" /></td>" 
+	  		      + "onclick=\"carregaUser('" + user.id + "');\" /></td>" 
 	  		      + "</tr>";
 
 	  		   $("#grid").append(data);
 	  		}
 
-		function adicionaMedicalRecommendation() {
-			var data = $("#criarMedicalRecommendationForm").serializeJSON();
+		function adicionaUser() {
+			var data = $("#criarUserForm").serializeJSON();
 
   			if(data.id){
-  				atualizaMedicalRecommendation(data);
+  				atualizaUser(data);
   	  		}else {
-  	  			criaMedicalRecommendation(data);
+  	  			criaUser(data);
   	  	  	}
 
   		    
   		}
 
-  		function criaMedicalRecommendation(data){
-  			 data = "{\"medical-recommendation\":" + JSON.stringify(data) + "}";
+  		function criaUser(data){
+  			 data = "{\"user\":" + JSON.stringify(data) + "}";
    			$.ajax({
-   			   url : host + 'medical-recommendation',
+   			   url : host + 'user',
    			   type : 'POST',
    			   contentType : 'application/json',
    			   data : data,
    			   success : function(data) {
    				  alert("Incluído com sucesso!");
-   				  $("#criarMedicalRecommendationForm")[0].reset();
-   				  listarMedicalRecommendation();
+   				  $("#criarUserForm")[0].reset();
+   				  listarUser();
    			   },
    			   error : function(data) {
    				 
@@ -91,18 +91,18 @@
   		}
 
 
-		function atualizaMedicalRecommendation(data) {
+		function atualizaUser(data) {
 			id = data.id;
-  			data = "{\"medicalRecommendation\":" + JSON.stringify(data) + "}";
+  			data = "{\"user\":" + JSON.stringify(data) + "}";
   			$.ajax({
-  			   url : host + 'medical-recommendation/'+id,
+  			   url : host + 'user/'+id,
   			   type : 'PUT',
   			   contentType : 'application/json',
   			   data : data,
   			   success : function(data) {
   				  alert("Incluído com sucesso!");
-  				  $("#criarMedicalRecommendationForm")[0].reset();
-  				  listarMedicalRecommendation();
+  				  $("#criarUserForm")[0].reset();
+  				  listarUser();
   			   },
   			   error : function(data) {
 						console.log(data);
@@ -112,12 +112,12 @@
   			 });
   		}
 
-		function apagaMedicalRecommendation(id) {
+		function apagaUser(id) {
   			$.ajax({
-  						url : host + 'medical-recommendation/' + id,
+  						url : host + 'user/' + id,
   						type : 'DELETE',
   						success : function(data) {
-  							listarMedicalRecommendation();
+  							listarUser();
   						},
   						error : function(data) {
   							console.log(data);
@@ -128,13 +128,13 @@
 
   		}
 
-		function carregaMedicalRecommendation(id) {
+		function carregaUser(id) {
 					$.ajax({
-						url : host + 'medical-recommendation/' + id,
+						url : host + 'user/' + id,
 						type : 'GET',
 						success : function(data) {
-							var frm =  $("#criarMedicalRecommendationForm");
-							 $.each(data.medicalRecommendation, function(key, value){
+							var frm =  $("#criarUserForm");
+							 $.each(data.user, function(key, value){
 							    $('[name='+key+']', frm).val(value);
 							});
 						},

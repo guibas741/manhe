@@ -30,15 +30,14 @@
 			<div class="panel-heading">Administrar recomendações médicas</div>
 			<div class="panel-body">
 
-				<form id="criarCervejaForm">
+				<form id="criarMedicalRecommendationForm">
 					<div class="form-group">
 							<input type="hidden" class="form-control"
 							name="id" /> <label>Nome do Médico</label> <input type="text"
-							class="form-control" name="nomeMedico" /> <label>Usuario</label>
-						<input type="text" class="form-control" name="usuario" /> <label>Descrição</label>
-						<textarea rows="5" cols="10" class="form-control" name="descricao"></textarea>
-						<label>Data</label> <input type="date" class="form-control"
-							name="datetime" /> <label>Status</label> <select name="status"
+							class="form-control" name="doctorName" /> <label>Descrição</label>
+						<textarea rows="5" cols="10" class="form-control" name="description"></textarea>
+						<label>Data</label> <input type="datetime" class="form-control"
+							name="datetime" value="" /> <label>Status</label> <select name="status"
 							class="form-control">
 							<option value="ACTIVE" selected="selected">Ativo</option>
 							<option value="INACTIVE">Inativo</option>
@@ -46,7 +45,7 @@
 						<div class="btn-block btn-group">
 							<input type="reset" class="btn btn-default" value="Limpar" /> <input
 								type="button" class="btn btn-primary" value="Salvar"
-								onclick="adicionaMedicalrecommendation();" />
+								onclick="adicionaMedicalRecommendation();" />
 						</div>
 					</div>
 				</form>
@@ -60,7 +59,7 @@
 							<th>Nome do Médico</th>
 							<th>Descrição</th>
 							<th>Status</th>
-							<th>Data</th>
+							<th>Ações</th>
 						</tr>
 					</thead>
 					<tr>

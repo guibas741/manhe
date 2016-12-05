@@ -7,8 +7,8 @@ import javax.persistence.Query;
 import br.org.catolicasc.manhe.entity.User;
 
 public class UserDao extends JpaDaoBase<User> implements IDao<User>{
-	public User buscaPorNome(String nome){
-		Query query = em.createNamedQuery("User.buscaPorNome").setParameter("nome", nome);
+	public User autenticar(User user){
+		Query query = em.createNamedQuery("User.autenticar").setParameter("username", user.getUsername()).setParameter("password", user.getPassword());
 		List<User> users = query.getResultList();
 		if (!users.isEmpty())
 			return users.get(0);
