@@ -7,14 +7,60 @@
 		<xs:element name="layette" type="Layette" />
 
 		<xs:element name="layettes" type="Layettes" />
+		
+		<xs:element name="Mood" type="Mood" />
 
+		<xs:element name="Moods" type="Moods" />
+
+		<xs:element name="Schedule" type="Schedule" />
+
+		<xs:element name="Schedules" type="Schedules" />
+		
+		<xs:element name="MoodHistory" type="MoodHistory" />
+
+		<xs:element name="MoodHistories" type="MoodHistories" />
+		
+		<xs:element name="MoodHistory" type="MoodHistory" />
+
+		<xs:element name="MedicalRecommendation" type="MedicalRecommendation" />
+		
+		<xs:element name="MedicalRecommendations" type="MedicalRecommendations" />
+		
 		<xs:complexType name="Layettes">
 			<xs:sequence>
 				<xs:element name="link" type="jaxbLink" minOccurs="0"
 					maxOccurs="unbounded" />
 			</xs:sequence>
 		</xs:complexType>
+		
+		<xs:complexType name="Moods">
+			<xs:sequence>
+				<xs:element name="link" type="jaxbLink" minOccurs="0"
+					maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
 
+		<xs:complexType name="Schedules">
+			<xs:sequence>
+				<xs:element name="link" type="jaxbLink" minOccurs="0"
+					maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+				
+		<xs:complexType name="MoodHistories">
+			<xs:sequence>
+				<xs:element name="link" type="jaxbLink" minOccurs="0"
+					maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+		
+		<xs:complexType name="MedicalRecommendations">
+			<xs:sequence>
+				<xs:element name="link" type="jaxbLink" minOccurs="0"
+					maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+				
 		<xs:complexType name="jaxbLink">
 			<xs:sequence />
 			<xs:attribute name="href" type="xs:string" />
@@ -28,7 +74,41 @@
 				<xs:element name="status" type="Status" minOccurs="0" />
 			</xs:sequence>
 		</xs:complexType>
+		
+		
+		<xs:complexType name="Mood">
+			<xs:sequence>
+				<xs:element name="name" type="xs:string" minOccurs="0" />
+				<xs:element name="description" type="xs:string" minOccurs="0" />
+				<xs:element name="status" type="Status" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+		
+		<xs:complexType name="Schedule">
+			<xs:sequence>
+				<xs:element name="name" type="xs:string" minOccurs="0" />
+				<xs:element name="description" type="xs:string" minOccurs="0" />
+				<xs:element name="result" type="xs:string" minOccurs="0" />
+				<xs:element name="status" type="Status" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
 
+		<xs:complexType name="MoodHistory">
+			<xs:sequence>
+				<xs:element name="moodId" type="xs:long" minOccurs="0" />
+				<xs:element name="reason" type="xs:string" minOccurs="0" />
+				<xs:element name="status" type="Status" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+		
+		<xs:complexType name="MedicalRecommendation">
+			<xs:sequence>
+				<xs:element name="doctorName" type="xs:string" minOccurs="0" />
+				<xs:element name="description" type="xs:string" minOccurs="0" />
+				<xs:element name="status" type="Status" minOccurs="0" />
+			</xs:sequence>
+		</xs:complexType>
+		
 		<xs:simpleType name="Status">
 			<xs:restriction base="xs:string">
 				<xs:enumeration value="ACTIVE" />

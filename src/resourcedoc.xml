@@ -4,7 +4,7 @@
 	<classDocs>
 		<classDoc>
 			<className>br.org.catolicasc.services.LayetteService</className>
-			<commentText><![CDATA[Gerencia todas as cervejas do sistema.]]>
+			<commentText><![CDATA[Gerencia todas as recomendações do sistema.]]>
 			</commentText>
 			<methodDocs>
 				<methodDoc>
@@ -30,7 +30,151 @@
 								<doc>Este é o retorno padrão</doc>
 							</representation>
 							<representation status="404">
-								<doc>Retornado caso a cerveja em questão não seja encontrada.</doc>
+								<doc>Retornado caso o layette em questão não seja encontrado.</doc>
+							</representation>
+						</representations>
+					</responseDoc>
+				</methodDoc>
+				
+			</methodDocs>
+		</classDoc>	
+		<classDoc>
+			<className>br.org.catolicasc.services.MedicalRecommendationService</className>
+			<commentText><![CDATA[Gerencia todas as recomendações do sistema.]]>
+			</commentText>
+			<methodDocs>
+				<methodDoc>
+					<methodName>findAll</methodName>
+					<commentText><![CDATA[Lista os MedicalRecommendations]]></commentText>
+					
+					<responseDoc>						
+						<representations>
+							<representation element="medicalRecommendations" status="200"
+								mediaType="text/xml,application/xml,application/json">								
+								<doc>Esta é a representação padrão</doc>
+							</representation>
+						</representations>
+					</responseDoc>
+				</methodDoc>
+				<methodDoc>
+					<methodName>findMedicalRecommendation</methodName>
+					<commentText><![CDATA[Localiza uma determinada MedicalRecommendation em particular]]></commentText>
+					<responseDoc>						
+						<representations>
+							<representation element="medicalRecommendation" status="200"
+								mediaType="text/xml,application/xml,application/json">								
+								<doc>Este é o retorno padrão</doc>
+							</representation>
+							<representation status="404">
+								<doc>Retornado caso o MedicalRecommendation em questão não seja encontrado.</doc>
+							</representation>
+						</representations>
+					</responseDoc>
+				</methodDoc>
+				
+			</methodDocs>
+		</classDoc>	
+		<classDoc>
+			<className>br.org.catolicasc.services.MoodService</className>
+			<commentText><![CDATA[Gerencia todas as recomendações do sistema.]]>
+			</commentText>
+			<methodDocs>
+				<methodDoc>
+					<methodName>findAll</methodName>
+					<commentText><![CDATA[Lista os moods]]></commentText>
+					
+					<responseDoc>						
+						<representations>
+							<representation element="moods" status="200"
+								mediaType="text/xml,application/xml,application/json">								
+								<doc>Esta é a representação padrão</doc>
+							</representation>
+						</representations>
+					</responseDoc>
+				</methodDoc>
+				<methodDoc>
+					<methodName>findMood</methodName>
+					<commentText><![CDATA[Localiza uma determinada mood em particular]]></commentText>
+					<responseDoc>						
+						<representations>
+							<representation element="mood" status="200"
+								mediaType="text/xml,application/xml,application/json">								
+								<doc>Este é o retorno padrão</doc>
+							</representation>
+							<representation status="404">
+								<doc>Retornado caso o mood em questão não seja encontrado.</doc>
+							</representation>
+						</representations>
+					</responseDoc>
+				</methodDoc>
+				
+			</methodDocs>
+		</classDoc>
+		<classDoc>
+			<className>br.org.catolicasc.services.ScheduleService</className>
+			<commentText><![CDATA[Gerencia todas as recomendações do sistema.]]>
+			</commentText>
+			<methodDocs>
+				<methodDoc>
+					<methodName>findAll</methodName>
+					<commentText><![CDATA[Lista os schedules]]></commentText>
+					
+					<responseDoc>						
+						<representations>
+							<representation element="schedules" status="200"
+								mediaType="text/xml,application/xml,application/json">								
+								<doc>Esta é a representação padrão</doc>
+							</representation>
+						</representations>
+					</responseDoc>
+				</methodDoc>
+				<methodDoc>
+					<methodName>findSchedule</methodName>
+					<commentText><![CDATA[Localiza uma determinada schedule em particular]]></commentText>
+					<responseDoc>						
+						<representations>
+							<representation element="schedule" status="200"
+								mediaType="text/xml,application/xml,application/json">								
+								<doc>Este é o retorno padrão</doc>
+							</representation>
+							<representation status="404">
+								<doc>Retornado caso o schedule em questão não seja encontrado.</doc>
+							</representation>
+						</representations>
+					</responseDoc>
+				</methodDoc>
+				
+			</methodDocs>
+		</classDoc>
+		<classDoc>
+			<className>br.org.catolicasc.services.MoodHistoryService</className>
+			<commentText><![CDATA[Gerencia todas as recomendações do sistema.]]>
+			</commentText>
+			<methodDocs>
+				<methodDoc>
+					<methodName>findAll</methodName>
+					<commentText><![CDATA[Lista os moodHistorys]]></commentText>
+					
+					<responseDoc>						
+						<representations>
+							<representation element="moodHistorys" status="200"
+								mediaType="text/xml,application/xml,application/json">								
+								<doc>Esta é a representação padrão</doc>
+							</representation>
+						</representations>
+					</responseDoc>
+				</methodDoc>
+				<methodDoc>
+					<methodName>findMoodHistory</methodName>
+					<commentText><![CDATA[Localiza uma determinada moodHistory em particular]]></commentText>
+					<responseDoc>						
+						<representations>
+							<representation element="moodHistory" status="200"
+								mediaType="text/xml,application/xml,application/json">								
+								<doc>Este é o retorno padrão</doc>
+							</representation>
+							<representation status="404">
+								<doc>Retornado caso o moodHistory em questão não seja encontrado.</doc>
 							</representation>
 						</representations>
 					</responseDoc>
